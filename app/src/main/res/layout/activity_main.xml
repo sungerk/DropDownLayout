@@ -21,7 +21,7 @@
         tl:tl_textsize="14sp" />
     <View
         android:layout_width="match_parent"
-        android:layout_height="1px"
+        android:layout_height="2dp"
         android:background="#edeeef"></View>
     <include layout="@layout/content_main" />
 

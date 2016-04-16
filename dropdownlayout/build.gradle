@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
@@ -16,9 +17,25 @@ android {
         }
     }
 }
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.novoda:bintray-release:0.3.4'
+    }
+}
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.3.0'
+}
+publish {
+    userOrg = 'sunger'
+    groupId = 'org.sunger.widget.dropdownlayout'
+    artifactId = 'dropdownlayout'
+    publishVersion = '0.0.1'
+    desc = 'Oh hi, this is a nice description for a project, right?'
+    website = 'https://github.com/sungerk'
 }
