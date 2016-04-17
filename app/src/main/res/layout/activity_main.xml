@@ -18,6 +18,7 @@
         tl:tl_tab_space_equal="true"
         tl:tl_textSelectColor="#ff8500"
         tl:tl_textUnselectColor="#4f4f4f"
+
         tl:tl_textsize="14sp" />
     <View
         android:layout_width="match_parent"

@@ -39,16 +39,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        menuLayout = (MenuLayout) findViewById(R.id.menuLayout);
         dropDownLayout = (DropDownLayout) findViewById(R.id.dropdown);
         List<Fragment> fragments = new ArrayList<>();
         fragments.add(new FragmentFloor());
         fragments.add(new FragmentCategory());
         fragments.add(new FragmentSort());
-
-        menuLayout = (MenuLayout) findViewById(R.id.menuLayout);
 //         menuLayout.setAnimationIn(R.anim.an);
 //         menuLayout.setAnimationOut(R.anim.out);
-
         menuLayout.setFragmentManager(getSupportFragmentManager());
         menuLayout.setFragment(fragments, R.id.menuLayout);
         tabs = (CommonTabLayout) findViewById(R.id.tabs);
