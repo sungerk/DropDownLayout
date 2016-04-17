@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
      tools:showIn="@layout/activity_main">
 
-    <org.net.sunger.widget.ContentLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#fff"
@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
              ></android.support.v7.widget.RecyclerView>
-    </org.net.sunger.widget.ContentLayout>
+    </RelativeLayout>
 
      <org.net.sunger.widget.MaskView
         android:layout_width="match_parent"

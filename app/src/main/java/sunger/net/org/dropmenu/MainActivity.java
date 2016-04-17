@@ -46,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
         fragments.add(new FragmentSort());
 
         menuLayout = (MenuLayout) findViewById(R.id.menuLayout);
+//         menuLayout.setAnimationIn(R.anim.an);
+//         menuLayout.setAnimationOut(R.anim.out);
+
         menuLayout.setFragmentManager(getSupportFragmentManager());
         menuLayout.setFragment(fragments, R.id.menuLayout);
         tabs = (CommonTabLayout) findViewById(R.id.tabs);

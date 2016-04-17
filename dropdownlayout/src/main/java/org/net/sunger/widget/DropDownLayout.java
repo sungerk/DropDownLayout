@@ -11,9 +11,8 @@ import android.widget.FrameLayout;
 /**
  * Created by sunger on 16/4/16.
  */
-public class DropDownLayout extends FrameLayout implements ViewTreeObserver.OnGlobalLayoutListener{
+public class DropDownLayout extends FrameLayout implements ViewTreeObserver.OnGlobalLayoutListener {
 
-    private ContentLayout mContentLayout;
     private MaskView mMaskView;
     private MenuLayout mMenuLayout;
 
@@ -37,23 +36,21 @@ public class DropDownLayout extends FrameLayout implements ViewTreeObserver.OnGl
 
     private void findChildView() {
         for (int i = 0; i < getChildCount(); i++) {
+            if (mMaskView!=null&&mMenuLayout!=null)
+                break;
             View childItem = getChildAt(i);
-            if (childItem instanceof ContentLayout) {
-                mContentLayout = (ContentLayout) childItem;
-            } else if (childItem instanceof MaskView) {
+            if (childItem instanceof MaskView) {
                 mMaskView = (MaskView) childItem;
             } else if (childItem instanceof MenuLayout) {
                 mMenuLayout = (MenuLayout) childItem;
             }
         }
     }
-
-
     @Override
     public void onGlobalLayout() {
         findChildView();
-        if (mContentLayout == null || mMaskView == null || mMenuLayout == null) {
-            throw new IllegalArgumentException("you layout must be contain ContentLayout MaskView MenuLayout");
+        if (mMaskView == null || mMenuLayout == null) {
+            throw new IllegalArgumentException("you layout must be contain  MaskView MenuLayout");
         }
 
         if (Build.VERSION.SDK_INT < 16) {

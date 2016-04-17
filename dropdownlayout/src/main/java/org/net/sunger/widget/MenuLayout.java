@@ -7,10 +7,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.AttributeSet;
-import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
+
+import net.org.sunger.dropdownlayout.R;
 
 import java.util.List;
 
@@ -18,10 +19,8 @@ import java.util.List;
  * Created by sunger on 16/4/16.
  */
 public class MenuLayout extends RelativeLayout {
-    private static final Animation DEFAULT_ANIM_IN = getDefalutAlphaAnimationIn();
-    private static final Animation DEFAULT_ANIM_OUT = getDefalutAlphaAnimationOut();
-    private Animation animationIn = DEFAULT_ANIM_IN;
-    private Animation animationOut = DEFAULT_ANIM_OUT;
+    private Animation animationIn;
+    private Animation animationOut;
     private FragmentManager fragmentManager;
     private List<Fragment> fragments;
     private int currentItem = 0;
@@ -55,6 +54,7 @@ public class MenuLayout extends RelativeLayout {
             }
         }
     }
+
     public void setCurrentItem(int position) {
         currentItem = position;
         FragmentTransaction transaction = fragmentManager.beginTransaction();
@@ -74,16 +74,21 @@ public class MenuLayout extends RelativeLayout {
     }
 
     public void show() {
+        if (animationIn == null) {
+            animationIn = AnimationUtils.loadAnimation(getContext(), R.anim.menu_in);
+        }
         setVisibility(VISIBLE);
         setAnimation(animationIn);
         animationIn.start();
     }
 
     public void dissMiss() {
+        if (animationOut == null) {
+            animationOut = AnimationUtils.loadAnimation(getContext(), R.anim.menu_out);
+        }
         setVisibility(GONE);
         setAnimation(animationOut);
         animationOut.start();
-
     }
 
 
@@ -111,22 +116,10 @@ public class MenuLayout extends RelativeLayout {
         this.animationOut = AnimationUtils.loadAnimation(getContext(), animationOutResId);
     }
 
-    private static AlphaAnimation getDefalutAlphaAnimationIn() {
-        AlphaAnimation animation = new AlphaAnimation(0f, 1f);
-        animation.setDuration(250);
-        return animation;
-    }
-
 
     public boolean isShow() {
         return getVisibility() == VISIBLE;
     }
 
-
-    private static AlphaAnimation getDefalutAlphaAnimationOut() {
-        AlphaAnimation animation = new AlphaAnimation(1f, 0f);
-        animation.setDuration(250);
-        return animation;
-    }
 
 }
