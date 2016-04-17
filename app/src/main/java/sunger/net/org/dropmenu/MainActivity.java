@@ -48,10 +48,9 @@ public class MainActivity extends AppCompatActivity {
 //         menuLayout.setAnimationIn(R.anim.an);
 //         menuLayout.setAnimationOut(R.anim.out);
         menuLayout.setFragmentManager(getSupportFragmentManager());
-        menuLayout.setFragment(fragments, R.id.menuLayout);
+        menuLayout.bindFragments(fragments);
         tabs = (CommonTabLayout) findViewById(R.id.tabs);
         updateTabData();
-
 
         tabs.setOnTabSelectListener(new OnTabSelectListener() {
             @Override

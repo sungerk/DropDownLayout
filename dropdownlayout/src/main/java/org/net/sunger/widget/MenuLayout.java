@@ -47,6 +47,13 @@ public class MenuLayout extends RelativeLayout {
         this.fragmentManager = fragmentManager;
     }
 
+    private int getMenuId() {
+        if (getId() == NO_ID) {
+            setId(R.id.menu_id);
+        }
+        return getId();
+    }
+
     private void hideLastFragment(FragmentTransaction transaction) {
         for (int i = 0; i < fragments.size(); i++) {
             if (i != currentItem || !fragments.get(i).isHidden()) {
@@ -64,14 +71,16 @@ public class MenuLayout extends RelativeLayout {
     }
 
 
-    public void setFragment(List<Fragment> fragmentList, int id) {
+    public void bindFragments(List<Fragment> fragmentList) {
         this.fragments = fragmentList;
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         for (Fragment frg : fragments) {
-            transaction.add(id, frg);
+            transaction.add(getMenuId(), frg);
         }
         transaction.commit();
     }
+
+
 
     public void show() {
         if (animationIn == null) {

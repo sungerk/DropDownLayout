@@ -69,7 +69,7 @@ the  menu layout
         //menuLayout.setAnimationIn(R.anim.an);
         //menuLayout.setAnimationOut(R.anim.out);
         menuLayout.setFragmentManager(getSupportFragmentManager());
-        menuLayout.setFragment(fragments, R.id.menuLayout);
+        menuLayout.bindFragments(fragments);
         // dropDownLayout.closeMenu();
         //  dropDownLayout.showMenuAt(position);
 ```
