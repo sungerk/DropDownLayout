@@ -3,18 +3,17 @@ effect
 ![](https://github.com/sungerk/DropDownLayout/blob/master/art/shutcut.gif)
 ##How to use?
 ###1.config the layout like this
- *DropDownLayout
+* DropDownLayout
  the container who can controller the menu sho or dissmiss
 
- *RelativeLayout
+* RelativeLayout
  you custom  contentView,you can use RelativeLayout,LinearLayout or other layout view.
 
- *MaskView
+* MaskView
   when menu is show the mask will show,and when the menu dismiss the maskview will dismiss
   ## you must set the alpha. so i set the background color with alpha #88838685
 
-
-*MenuLayout
+* MenuLayout
 the  menu layout
 
 ###Like this
