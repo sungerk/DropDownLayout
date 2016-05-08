@@ -79,7 +79,7 @@ the  menu layout
 ## License
 
 ```
-Copyright 2016 Hannes sungerk
+Copyright 2016 sungerk
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
